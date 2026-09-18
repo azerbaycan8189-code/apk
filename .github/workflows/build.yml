@@ -27,7 +27,6 @@ jobs:
           pip install --upgrade cython==0.29.36 buildozer
 
       - name: Build APK with Buildozer
-        working-directory: ./apk
         run: |
           yes | buildozer -v android debug
 
@@ -35,4 +34,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: package
-          path: apk/bin/*.apk
+          path: bin/*.apk
