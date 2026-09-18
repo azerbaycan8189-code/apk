@@ -2,15 +2,18 @@
 
 title = VzlomApp
 package.name = vzlomapp
-package.domain = org.vzlom
+package.domain = org.vzlomapp
 
 source.dir = .
-source.main = vzlom5.py
-source.include_exts = py,png,jpg,kv,atlas
+source.include_exts = py,png,jpg,jpeg,kv,atlas,json
 
 version = 0.1
 
-requirements = python3==3.11.9,kivy==2.3.1,requests
+# Файл должен находиться рядом с buildozer.spec
+source.main = vzlom5.py
+
+# Не указывай точную версию Python — python-for-android сам выберет совместимую
+requirements = python3,kivy==2.3.1,requests
 
 orientation = portrait
 fullscreen = 0
@@ -19,7 +22,6 @@ android.permissions = INTERNET
 
 android.api = 33
 android.minapi = 21
-android.sdk = 33
 android.ndk = 25b
 android.archs = arm64-v8a
 
