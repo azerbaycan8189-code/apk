@@ -24,16 +24,10 @@ jobs:
       - name: Install Buildozer and Cython
         run: |
           pip install --upgrade pip
-          pip install --upgrade cython buildozer
-
-      - name: Initialize Buildozer config
-        run: |
-          buildozer init || true
-          # Убедимся, что в конфиге прописан правильный файл
-          sed -i 's/#   source.main = main.py/source.main = vzlom5.py/g' buildozer.spec
-          sed -i 's/source.main = main.py/source.main = vzlom5.py/g' buildozer.spec
+          pip install --upgrade cython==0.29.36 buildozer
 
       - name: Build APK with Buildozer
+        working-directory: ./apk
         run: |
           buildozer -v android debug
 
@@ -41,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: package
-          path: bin/*.apk
+          path: apk/bin/*.apk
