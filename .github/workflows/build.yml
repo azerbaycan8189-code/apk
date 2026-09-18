@@ -28,10 +28,13 @@ jobs:
 
       - name: Build APK with Buildozer
         run: |
-          buildozer -v android debug || (echo "=== LOG OUTPUT ===" && cat .buildozer/android/platform/build.log || find . -name "*.log" -exec cat {} +)
+          yes | buildozer -v android debug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: package
-          path: bin/*.apk
+          path: |
+            bin/*.apk
+            *.apk
+            **/*.apk
