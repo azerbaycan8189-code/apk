@@ -1,20 +1,16 @@
 [app]
-title = VzlomApp
-package.name = vzlomapp
-package.domain = org.vzlom
-source.file = vzlom5.py
-source.main = vzlom5.py
-source.include_exts = py
-requirements = python3,requests
-orientation = portrait
-fullscreen = 0
-android.permissions = INTERNET
-android.api = 33
-android.minapi = 21
-android.sdk = 33
-android.ndk = 25b
-android.archs = arm64-v8a, armeabi-v7a
 
-[buildozer]
-log_level = 2
-warn_on_root = 1
+# (str) Title of your application
+title = VzlomApp
+
+# (str) Package name
+package.name = vzlomapp
+
+# (str) Package domain (needed for android packaging)
+package.domain = org.vzlom
+
+# (str) Source file where the main entry point is located
+source.main = vzlom5.py
+
+# (list) Source files to include (let it be empty to include all files)
+source.include_exts = py,png,jpg,kv,atlas
